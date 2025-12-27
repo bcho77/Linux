@@ -20,7 +20,7 @@
 
 ## Understanding File Permissions
 
-> - Every file in linux has __read__(r), __write__(w) and __execute__(x) permissions.
+> - Every file in linux has __read__(r) also __4__, __write__(w) also __2__ and __execute__(x) also __1__ permissions.
 
 > - Permissions are assigned to three classes: Owner, group, and others.
 
