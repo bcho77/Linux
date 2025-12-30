@@ -5,7 +5,7 @@ A file system manages how data is stored and retrieved from a disk.
 Common Linux file systems:
 > - ext4: The most common default file system.
 > - XFS: Known for handling large files efficiently.
-> . Btrfs: Offers advanced features like snapshots and pooling.
+> - Btrfs: Offers advanced features like snapshots and pooling.
 
 ## Mounting and Unmounting 
 
@@ -57,5 +57,36 @@ Swap space is used as virtual memory when the system runs out of physical RAM.
 > - fsck: A tool for checking and repairing file system errors.
 > - fsck /dev/sda1: Check and repair a file system.
 > - Use df and du for diagnosing disk space issues.
-> -Mounting options: Use options like ro (read-only) or noatime to control mount behavior
+> - Mounting options: Use options like ro (read-only) or noatime to control mount behavior
+
+## Logical Volume Management
+
+> - LVM allows you to manage and resize storage dynamically.
+> - LVM Structure:
+> - Physical Volumes (PVs): The physical disks or partitions.
+> - Volume Groups (VGs): Groups of physical volumes.
+> - Logical Volumes (LVs): The storage units you create and manage.
+> - Key benefit: You can resize, add, or remove volumes without rebooting the syste
+
+### Creating and Managing Logical Volumes
+#### Example commands:
+> - pvcreate /dev/sda1: Create a physical volume.
+> - vgcreate myvg /dev/sda1: Create a volume group.
+> - lvcreate -L 10G -n mylv myvg: Create a logical volume.
+> - mkfs.ext4 /dev/myvg/mylv: Format the logical volume with a file system.
+> - mount /dev/myvg/mylv /mnt: Mount the logical volume.
+#### Resizing logical volumes:
+> - lvextend -L +5G /dev/myvg/mylv: Increase the size of the logical volume.
+> - resize2fs /dev/myvg/mylv: Resize the file system to match the logical
+volume.
+
+### Monitoring LVM
+
+> - Use vgdisplay to show information about volume groups.
+> - Use lvdisplay to check logical volume details.
+> -  Example:
+    > - vgdisplay myvg
+    > - lvdisplay /dev/myvg/mylv
+> - Best practice: Regularly monitor volume groups and logical volumes to
+ensure they have enough space.
 
