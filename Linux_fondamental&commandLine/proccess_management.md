@@ -51,13 +51,11 @@ Viewing and Managing Processes with ps and kill
 
 ## Advanced Monitoring with strace and lsof
 
-strace: Monitors system calls made by a process. Useful for
-troubleshooting:
-○ strace -p PID: Monitor system calls for a specific process.
-● lsof: Lists open files and network connections for a process:
-○ lsof -p PID: List files opened by a process.
-● Use cases:
-○ strace helps identify why a process is stuck or misbehaving.
-○ lsof helps track what files or sockets are being used by a process.
-asAt 5zesedacä-
-a eswaems l x
+> - strace: Monitors system calls made by a process. Useful for
+> - troubleshooting:
+   > - strace -p PID: Monitor system calls for a specific process.
+   > - lsof: Lists open files and network connections for a process:
+   > - lsof -p PID: List files opened by a process.
+> -Use cases:
+   > -strace helps identify why a process is stuck or misbehaving.
+   > - lsof helps track what files or sockets are being used by a process.
